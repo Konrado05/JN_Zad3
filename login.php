@@ -1,16 +1,11 @@
 <?php
     session_start();
-
-    require_once "db_connect_data.php";
-
-    $connection = @new mysqli("localhost", $db_user, $db_passwd, $db_name);
+    
+    $connection = @new mysqli("localhost", "root", "", "recipes");
     
     if ($connection->connect_errno == 0)
-    {
-        $login = $_POST['login'];
-        $password = hash('sha256', $_POST['password']);
-        
-        $sql = "SELECT * FROM users Where username='$login' AND password='$password'";
+    {        
+        $sql = "SELECT * FROM users Where username='".$_POST['login']."'"."AND password='".hash('sha256', $_POST['password'])."'";
 
         if($result = @$connection->query($sql))
         {
@@ -28,7 +23,7 @@
             else
             {
                 $_SESSION['logFail'] = TRUE;
-                $_SESSION['connectionFault'] = FALSE;
+                unset($_SESSION['connectionFault']);
                 header('Location: index.php');
             }
         }
