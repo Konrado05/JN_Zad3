@@ -28,7 +28,6 @@
             }
         }
 
-        $connection->close();
     }
     else
     {
