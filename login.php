@@ -5,7 +5,7 @@
     
     if ($connection->connect_errno == 0)
     {        
-        $sql = "SELECT * FROM users Where username='".$_POST['login']."'"."AND password='".hash('sha256', $_POST['password'])."'";
+        $sql = "SELECT * FROM users Where username='".$_POST['username']."'"."AND password='".hash('sha256', $_POST['password'])."'";
 
         if($result = @$connection->query($sql))
         {

@@ -23,7 +23,7 @@
 
     <body>
         <form action="login.php" method="post">
-            Login: <br/> <input type="text" name="login" /> <br/>
+            Login: <br/> <input type="text" name="username" /> <br/>
             Hasło: <br/> <input type="password" name="password" /> <br/>
             <input class="submit" type="submit" value="Zaloguj" />
             <?php
